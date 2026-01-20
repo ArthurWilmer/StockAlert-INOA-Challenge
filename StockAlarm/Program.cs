@@ -39,25 +39,29 @@ try
     var config = ConfigLoader.Load(configPath);
     Console.WriteLine($"Config carregado com sucesso. E-mails serão enviados para: {config.EmailTo}");
 
-    // ---------------------------------
-    // 3) TESTE DE SMTP (temporário)
-    // ---------------------------------
-    var emailService = new EmailService(config);
+    // -----------------------------
+    // 3) TESTE BRAPI (1 consulta)
+    // -----------------------------
+    try
+    {
+        using var httpClient = new HttpClient
+        {
+            Timeout = TimeSpan.FromSeconds(10)
+        };
 
-    Console.WriteLine("Enviando e-mail de teste...");
-    emailService.Send(
-        subject: "Teste SMTP - Stock Quote Alert",
-        body:
-            "Este é um e-mail de teste do projeto Stock Quote Alert.\n\n" +
-            $"Ticker informado: {ticker}\n" +
-            $"Preço venda: {sellPrice}\n" +
-            $"Preço compra: {buyPrice}\n" +
-            $"Data/Hora: {DateTime.Now}"
-    );
+        var quoteService = new QuoteService(httpClient);
 
-    Console.WriteLine("E-mail de teste enviado com sucesso!");
-    return 0;
+        Console.WriteLine("Consultando preço na BRAPI...");
+        var price = await quoteService.GetRegularMarketPriceAsync(ticker, config.BrapiToken, CancellationToken.None);
+
+        Console.WriteLine($"Preço atual ({ticker}): R$ {price.ToString(CultureInfo.InvariantCulture)}");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Falha ao consultar BRAPI: {ex.Message}");
+    }
 }
+
 catch (Exception ex)
 {
     Console.WriteLine("Erro ao carregar configuração ou enviar e-mail:");
@@ -66,3 +70,4 @@ catch (Exception ex)
     return 1;
 }
 
+return 0;
