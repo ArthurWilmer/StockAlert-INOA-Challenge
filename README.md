@@ -133,7 +133,7 @@ StockAlarm/
 
 ---
 
-## Build / Publicação
+## Rodar com executável
 
 Para gerar o executável:
 
