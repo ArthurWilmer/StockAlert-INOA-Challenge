@@ -133,6 +133,12 @@ StockAlarm/
 
 ---
 
+## Exemplo de saída
+<img width="841" height="212" alt="image" src="https://github.com/user-attachments/assets/52383c5b-5123-48dd-8e80-98dd4f1defd9" />
+
+
+---
+
 ## Rodar com executável
 
 Para gerar o executável:
