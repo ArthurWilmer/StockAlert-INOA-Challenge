@@ -13,3 +13,4 @@ C:\Users\arthu\OneDrive\Área de Trabalho\github\INOA\StockAlarm\obj\Debug\net10
 C:\Users\arthu\OneDrive\Área de Trabalho\github\INOA\StockAlarm\obj\Debug\net10.0\StockAlarm.pdb
 C:\Users\arthu\OneDrive\Área de Trabalho\github\INOA\StockAlarm\obj\Debug\net10.0\StockAlarm.genruntimeconfig.cache
 C:\Users\arthu\OneDrive\Área de Trabalho\github\INOA\StockAlarm\obj\Debug\net10.0\ref\StockAlarm.dll
+C:\Users\arthu\OneDrive\Área de Trabalho\github\INOA\StockAlarm\bin\Debug\net10.0\config.json
