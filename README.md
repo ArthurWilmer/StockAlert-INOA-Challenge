@@ -1,4 +1,4 @@
-# 📈 Stock Alarm – Monitor de Cotação com Alertas por E-mail
+# Stock Alarm – Monitor de Cotação com Alertas por E-mail
 
 Aplicação de linha de comando em **C# (.NET)** que monitora continuamente a cotação de um ativo da **B3** utilizando a **API da BRAPI** e envia **alertas por e-mail** quando o preço atinge limites de **compra** ou **venda** definidos pelo usuário.
 
@@ -6,7 +6,7 @@ O programa roda enquanto estiver em execução e pode ser encerrado a qualquer m
 
 ---
 
-## 🎯 Objetivo do Projeto
+## Objetivo do Projeto
 
 Este projeto foi desenvolvido como parte de um **desafio técnico para estágio**, com foco em:
 
@@ -19,7 +19,7 @@ Este projeto foi desenvolvido como parte de um **desafio técnico para estágio*
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * **C# (.NET)**
 * **System.Net.Http** – requisições HTTP
@@ -30,19 +30,19 @@ Este projeto foi desenvolvido como parte de um **desafio técnico para estágio*
 
 ---
 
-## ✅ Pré-requisitos
+## Pré-requisitos
 
 * **.NET SDK** instalado (versão 9 ou superior recomendada)
 * Token válido da **BRAPI**
-  👉 [https://brapi.dev](https://brapi.dev)
+   [https://brapi.dev](https://brapi.dev)
 * Conta de e-mail com acesso SMTP (ex: Gmail, Outlook, etc.)
 * Ambiente Windows para execução do `.exe`
 
 ---
 
-## 🛠️ Configuração
+##  Configuração
 
-### 1️⃣ Criar o arquivo `config.json`
+### 1️. Criar o arquivo `config.json`
 
 Crie um arquivo chamado `config.json` **na raiz do projeto** (ele será copiado automaticamente para o diretório de execução no build).
 
@@ -62,7 +62,7 @@ Exemplo:
 }
 ```
 
-### 🔎 Descrição dos campos
+### 2. Descrição dos campos
 
 * **SmtpHost**: servidor SMTP (ex: `smtp.gmail.com`)
 * **SmtpPort**: porta SMTP (geralmente `587`)
@@ -73,11 +73,11 @@ Exemplo:
 * **BrapiToken**: token da API BRAPI
 * **PollIntervalMs**: intervalo entre consultas (em ms)
 
-> ⚠️ O arquivo `config.json` está no `.gitignore` e **não deve ser versionado**, pois contém credenciais.
+> O arquivo `config.json` está no `.gitignore` e **não deve ser versionado**, pois contém credenciais.
 
 ---
 
-## ▶️ Execução
+## Execução
 
 ### Rodando via `dotnet run`
 
@@ -91,7 +91,7 @@ dotnet run --project StockAlarm -- PETR4 22.67 22.59
 StockAlarm.exe PETR4 32.80 29.59
 ```
 
-### 📌 Parâmetros (ordem obrigatória)
+### Parâmetros (ordem obrigatória)
 
 1. **TICKER** – Código do ativo (ex: PETR4, VALE3)
 2. **PRECO_VENDA** – Preço que dispara alerta de venda
@@ -99,7 +99,7 @@ StockAlarm.exe PETR4 32.80 29.59
 
 ---
 
-## 🔄 Funcionamento do Sistema
+## Funcionamento do Sistema
 
 1. O programa valida os argumentos da linha de comando
 2. Carrega as configurações do `config.json`
@@ -114,7 +114,7 @@ StockAlarm.exe PETR4 32.80 29.59
 
 ---
 
-## 🚫 Prevenção de Spam de Alertas
+## Prevenção de Spam de Alertas
 
 O sistema possui uma lógica simples de controle para evitar envio repetido de e-mails:
 
@@ -123,7 +123,7 @@ O sistema possui uma lógica simples de controle para evitar envio repetido de e
 
 ---
 
-## 🗂️ Organização do Código
+## Organização do Código
 
 ```
 StockAlarm/
@@ -146,7 +146,7 @@ StockAlarm/
 
 ---
 
-## 📦 Build / Publicação
+## Build / Publicação
 
 Para gerar o executável:
 
@@ -161,7 +161,7 @@ Após o build:
 
 ---
 
-## 📝 Considerações Finais
+## Considerações Finais
 
 * A BRAPI no plano gratuito possui atraso de até **30 minutos** nos dados
 * O intervalo padrão recomendado é de **5 minutos (300000 ms)**
